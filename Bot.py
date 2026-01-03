@@ -1,14 +1,15 @@
 import tweepy
 import time
-
 import os
 
-API_KEY = os.environ['API_KEY']
-API_SECRET = os.environ['API_SECRET']
-BEARER_TOKEN = os.environ['BEARER_TOKEN']
-ACCESS_TOKEN = os.environ['ACCESS_TOKEN']
-ACCESS_TOKEN_SECRET = os.environ['ACCESS_TOKEN_SECRET']
+# Pega as credenciais dos Secrets
+API_KEY = os.environ.get('API_KEY')
+API_SECRET = os.environ.get('API_SECRET')
+BEARER_TOKEN = os.environ.get('BEARER_TOKEN')
+ACCESS_TOKEN = os.environ.get('ACCESS_TOKEN')
+ACCESS_TOKEN_SECRET = os.environ.get('ACCESS_TOKEN_SECRET')
 
+# Conecta no X
 client = tweepy.Client(
     bearer_token=BEARER_TOKEN,
     consumer_key=API_KEY,
@@ -17,16 +18,23 @@ client = tweepy.Client(
     access_token_secret=ACCESS_TOKEN_SECRET
 )
 
+# Inicia o contador
 minutes = 1
 
+# Loop infinito postando a cada minuto
 while True:
-    if minutes  == 1:
-        mensagem = f"Passou {minutes} minute"
-    else:
-        mensagem = f"has passed.  {minutes} minutes"
-    
-    client.create_tweet(text=mensagem)
-    print(f"Tweet {minutes} postado!")
-    
-    minutes += 1
-    time.sleep(60)
+    try:
+        if minutes == 1:
+            message = f"{minutes} minute has passed"
+        else:
+            message = f"{minutes} minutes have passed"
+        
+        client.create_tweet(text=message)
+        print(f"✅ Tweet {minutes} posted!")
+        
+        minutes += 1
+        time.sleep(60)
+        
+    except Exception as e:
+        print(f"❌ Error: {e}")
+        time.sleep(60)
