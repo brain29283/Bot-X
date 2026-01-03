@@ -31,10 +31,10 @@ client = tweepy.Client(
 
 # Função do bot
 def run_bot():
-    minutes = 1
+    minutes = 5
     while True:
         try:
-            if minutes == 1:
+            if minutes == 5:
                 message = f"{minutes} minute has passed"
             else:
                 message = f"{minutes} minutes have passed"
@@ -42,12 +42,12 @@ def run_bot():
             client.create_tweet(text=message)
             print(f"✅ Tweet {minutes} posted!")
             
-            minutes += 1
+            minutes += 5
             time.sleep(60)
             
         except Exception as e:
             print(f"❌ Error: {e}")
-            time.sleep(60)
+            time.sleep(300)
 
 # Inicia tudo
 if __name__ == "__main__":
