@@ -1,13 +1,12 @@
 import tweepy
 import time
-import os
 
-# Pega as credenciais dos Secrets
-API_KEY = os.environ.get('API_KEY')
-API_SECRET = os.environ.get('API_SECRET')
-BEARER_TOKEN = os.environ.get('BEARER_TOKEN')
-ACCESS_TOKEN = os.environ.get('ACCESS_TOKEN')
-ACCESS_TOKEN_SECRET = os.environ.get('ACCESS_TOKEN_SECRET')
+# Credenciais do X (TEMPORÁRIO - só pra testar)
+API_KEY = "Gil5u03fBg24n6n20XCC3tTUe"
+API_SECRET = "rJWAityGrdkiUj6n7xZUHQqb8Q4dVqt6x6GJkkly1obQWy8Az6"
+BEARER_TOKEN = "AAAAAAAAAAAAAAAAAAAAADHZ6gEAAAAA%2FYHQtlLuA3Ug3dH0077rH%2F5Bn5Q%3DyXlQ8wenKCaoveVvjGQKXLzCbxnOmOyE43uzZ5LIwJiL95mBJh"
+ACCESS_TOKEN = "2007259782147911680-oBgDV6nwrLOqVzRQhCKs6WfV5FmgZb"
+ACCESS_TOKEN_SECRET = "80MZTfiC8wIKfqZyptz8dPEJVuo2UY6KYlz1XdNAut6Jc"
 
 # Conecta no X
 client = tweepy.Client(
