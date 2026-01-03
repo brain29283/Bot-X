@@ -31,10 +31,10 @@ client = tweepy.Client(
 
 # Função do bot
 def run_bot():
-    minutes = 1
+    minutes = 5
     while True:
         try:
-            if minutes == 1:
+            if minutes == 5:
                 message = f"{minutes} minute has passed"
             else:
                 message = f"{minutes} minutes have passed"
