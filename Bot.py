@@ -31,27 +31,27 @@ client = tweepy.Client(
 
 # Função do bot
 def run_bot():
-    minutes = 5
+    hours = 1
     while True:
         try:
-            if minutes == 5:
-                message = f"{minutes} minute has passed"
+            if hours == 1:
+                message = f"{hours} hour has passed"
             else:
-                message = f"{minutes} minutes have passed"
+                message = f"{hours} hours have passed"
             
             client.create_tweet(text=message)
-            print(f"✅ Tweet {minutes} posted!")
+            print(f"✅ Tweet posted: {hours} hour(s)!")
             
-            minutes += 5
-            time.sleep(60)
+            hours += 1
+            time.sleep(3600)  # 3600 segundos = 1 hora
             
         except Exception as e:
             print(f"❌ Error: {e}")
-            time.sleep(300)
+            time.sleep(3600)  # Espera 1 hora antes de tentar de novo
 
 # Inicia tudo
 if __name__ == "__main__":
     Thread(target=run_flask).start()
     print("🌐 Flask server started!")
-    print("🤖 Bot started!")
+    print("🤖 Bot started! Posting every 1 hour...")
     run_bot()
